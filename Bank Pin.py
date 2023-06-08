@@ -1,16 +1,20 @@
-# Question 2:
-# Write a Python program that emulates the high-street bank mechanism for checking a PIN. Keep taking input from the keyboard (see below) until it is identical to a password number which is hard coded by you in the program.
-# To output a prompt and read:
-# supplied pin = input ("Enter your PIN: ")
-# Restrict the number of attempts to 3 (be sure to use a variable for that, we may wish to change it later), and output a suitable message for success and failure. Be sure to include the number of attempts in the message.
+def check_pin():
+supplied_pin = input("Enter your PIN: ")
+correct_pin = "1234" # Hardcoded PIN, you can change it
 
+attempts = 3
 
-
-pin = input("Enter your PIN")
-if pin == "1234":
-    print("PIN is correct")
+while attempts > 0:
+if supplied_pin == correct_pin:
+print("Success! Access granted.")
+break
 else:
-    print("PIN is wrong, please try again")
+attempts -= 1
+print("Invalid PIN. You have", attempts, "attempts remaining.")
+if attempts == 0:
+print("Access denied.")
+break
+supplied_pin = input("Enter your PIN: ")
 
 
-
+check_pin()
